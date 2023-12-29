@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Calendar from "$lib/containers/calendar.svelte";
+  import {Calendar} from "$lib"
 
   let data = {
     2023: {
@@ -15,7 +15,14 @@
       10: {},
       11: {},
       12: {
-        "12/22/2023": "Hello World",
+        "12/1/2023": [
+          { name: "yaytso gallery", description: "a timeslot for the flower show at yaytso gallery", time: new Date("12/1/2023 08:00 GMT-0800") },
+          { name: "yaytso gallery", description: "a timeslot for the flower show at yaytso gallery", time: new Date("12/1/2023 09:00 GMT-0800") },
+          { name: "yaytso gallery", description: "a timeslot for the flower show at yaytso gallery", time: new Date("12/1/2023 10:00 GMT-0800") },
+          { name: "yaytso gallery", description: "a timeslot for the flower show at yaytso gallery", time: new Date("12/1/2023 11:00 GMT-0800") },
+          { name: "yaytso gallery", description: "a timeslot for the flower show at yaytso gallery", time: new Date("12/1/2023 12:00 GMT-0800") },
+        ],
+        "12/22/2023": [{ name: "Hello World" }],
       },
     },
     2024: {
@@ -35,4 +42,4 @@
   };
 </script>
 
-<Calendar {data} />
+<Calendar on:booking={console.log} {data} />

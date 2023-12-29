@@ -9,5 +9,9 @@ declare global {
 		// interface Platform {}
 	}
 }
-
+declare global {
+	interface Date {
+	  toPSTTimeString(): string;
+	}
+  }
 export {};

@@ -11,7 +11,6 @@
   }
 
   export function monthIndexToName(index: number) {
-    console.log(new Date(0, index))
     return new Date(0, index).toLocaleString('default', { month: 'long' });
   }
 
@@ -23,4 +22,15 @@
       case 3:  return "rd";
       default: return "th";
     }
+  }
+
+  //${day.toLocaleDateString("en-US", { weekday: "long" })} the ${day.getDate()}${getOrdinalSuffix(day.getDate())}
+  // format a date to be a day of the week, for ex: Friday 12/24/2023
+  export function formatDayOfTheWeek(date: Date) {
+    return `${date.toLocaleString('default', { weekday: 'long' })} ${date.toLocaleString('default', { month: 'numeric' })}/${date.toLocaleString('default', { day: 'numeric' })}/${date.toLocaleString('default', { year: 'numeric' })}`;
+  }
+
+  // format a date to be a day of the week, for ex: Fri, 27 Dec
+  export function formatDayOfTheWeekShort(date: Date) {
+    return `${date.toLocaleString('default', { weekday: 'short' })}, ${date.toLocaleString('default', { day: 'numeric' })} ${date.toLocaleString('default', { month: 'short' })}`;
   }
